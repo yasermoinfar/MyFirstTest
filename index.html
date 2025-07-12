@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3D Shoe Try‑On</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+    body { margin: 0; background: #000 }
+    model-viewer {
+      position: fixed; top:0; left:0;
+      width:100vw; height:100vh;
+      background-color:#000;
+    }
+    .ar-button {
+      position: absolute;
+      bottom:20px; left:50%;
+      transform:translateX(-50%);
+      padding:12px 24px;
+      background:white; border-radius:8px;
+      font-size:16px; font-weight:bold;
+      cursor:pointer;
+    }
+  </style>
+</head>
+<body>
+  <model-viewer
+    src="061_Left.usdz"
+    ios-src="061_Left.usdz"
+    ar ar-modes="quick-look"
+    camera-controls auto-rotate
+    alt="3D Shoe Model"
+    shadow-intensity="1"
+    environment-image="neutral">
+    <button slot="ar-button" class="ar-button">
+      View on your foot
+    </button>
+  </model-viewer>
+</body>
+</html>
