@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>MyFirstTest</title>
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <meta charset="UTF-8" />
+  <title>3D Shoe Try‑On</title>
+  <script type="module"
+    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+  </script>
   <style>
     body { margin: 0; background: #000 }
     model-viewer {
-      position: fixed; top:0; left:0;
-      width:100vw; height:100vh;
-      background-color:#000;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-color: #000;
     }
     .ar-button {
       position: absolute;
-      bottom:20px; left:50%;
-      transform:translateX(-50%);
-      padding:12px 24px;
-      background:white; border-radius:8px;
-      font-size:16px; font-weight:bold;
-      cursor:pointer;
+      bottom: 20px; left: 50%;
+      transform: translateX(-50%);
+      padding: 12px 24px;
+      background: #fff; border-radius: 8px;
+      font-size: 16px; font-weight: bold;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
   <model-viewer
+    id="shoe-viewer"
     src="061_Left.usdz"
     ios-src="061_Left.usdz"
     ar ar-modes="quick-look"
@@ -35,5 +39,12 @@
       View on your foot
     </button>
   </model-viewer>
+  <script>
+    const viewer = document.getElementById('shoe-viewer');
+    viewer.addEventListener('error', (e) => {
+      console.error('Model failed to load:', e);
+      alert('خطا: مدل 3D بارگذاری نشد. لطفاً فایل usdz را بررسی کن.');
+    });
+  </script>
 </body>
 </html>
